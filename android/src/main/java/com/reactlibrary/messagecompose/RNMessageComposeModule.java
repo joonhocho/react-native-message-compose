@@ -188,7 +188,7 @@ public class RNMessageComposeModule extends ReactContextBaseJavaModule {
         if (attachment != null) {
             byte[] blob = getBlob(attachment, "data");
             String text = getString(attachment, "text");
-            String type = getString(attachment, "type");
+            String mimeType = getString(attachment, "mimeType");
             String filename = getString(attachment, "filename");
             if (filename == null) {
                 filename = UUID.randomUUID().toString();
@@ -217,8 +217,8 @@ public class RNMessageComposeModule extends ReactContextBaseJavaModule {
                 }
 
                 intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(tempFile));
-                if (type != null) {
-                    intent.setType(type);
+                if (mimeType != null) {
+                    intent.setType(mimeType);
                 }
             } catch (Exception e) {
                 // do nothing

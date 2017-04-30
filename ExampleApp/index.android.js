@@ -37,7 +37,7 @@ export default class ExampleApp extends Component {
               attachments: [{
                 filename: 'mytext',
                 ext: '.txt',
-                type: 'text/plain',
+                mimeType: 'text/plain',
                 text: 'Hello my friend',
               }],
             });

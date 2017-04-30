@@ -76,7 +76,7 @@ class RNMessageCompose: NSObject, MFMessageComposeViewControllerDelegate {
     }
     if MFMessageComposeViewController.canSendAttachments(), let value = data["attachments"] as? [[String: String]] {
       for dict in value {
-        if let data = textToData(utf8: dict["text"], base64: dict["data"]), let uti = mimeToUti(mimeType: dict["type"]), let filename = toFilename(filename: dict["filename"], ext: dict["ext"]) {
+        if let data = textToData(utf8: dict["text"], base64: dict["data"]), let uti = mimeToUti(mimeType: dict["mimeType"]), let filename = toFilename(filename: dict["filename"], ext: dict["ext"]) {
           vc.addAttachmentData(data, typeIdentifier: uti, filename: filename)
         }
       }
