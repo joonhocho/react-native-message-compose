@@ -1,6 +1,7 @@
 # react-native-message-compose
 React Native library for composing Message / SMS / Text. Wraps MFMessageComposeViewController for iOS and Intent for Android.
 
+For composing email, check out [joonhocho/react-native-mail-compose](https://github.com/joonhocho/react-native-mail-compose).
 
 ## Getting started
 
