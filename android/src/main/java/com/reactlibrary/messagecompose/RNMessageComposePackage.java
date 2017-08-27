@@ -16,7 +16,7 @@ public class RNMessageComposePackage implements ReactPackage {
       return Arrays.<NativeModule>asList(new RNMessageComposeModule(reactContext));
     }
 
-    @Override
+    // Depreciated RN 0.47
     public List<Class<? extends JavaScriptModule>> createJSModules() {
       return Collections.emptyList();
     }
