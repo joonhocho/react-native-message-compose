@@ -84,10 +84,12 @@ class RNMessageCompose: NSObject, MFMessageComposeViewControllerDelegate {
     
     vc.messageComposeDelegate = self
     
-    self.resolve = resolve
-    self.reject = reject
-    
-    UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+    if present(viewController: vc) {
+      self.resolve = resolve
+      self.reject = reject
+    } else {
+      reject("failed", "Could not present view controller", nil)
+    }
   }
   
   func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -107,4 +109,32 @@ class RNMessageCompose: NSObject, MFMessageComposeViewControllerDelegate {
     
     controller.dismiss(animated: true, completion: nil)
   }
+  
+  func getTopViewController(window: UIWindow?) -> UIViewController? {
+    if let window = window {
+      var top = window.rootViewController
+      while true {
+        if let presented = top?.presentedViewController {
+          top = presented
+        } else if let nav = top as? UINavigationController {
+          top = nav.visibleViewController
+        } else if let tab = top as? UITabBarController {
+          top = tab.selectedViewController
+        } else {
+          break
+        }
+      }
+      return top
+    }
+    return nil
+  }
+  
+  func present(viewController: UIViewController) -> Bool {
+    if let topVc = getTopViewController(window: UIApplication.shared.keyWindow) {
+      topVc.present(viewController, animated: true, completion: nil)
+      return true
+    }
+    return false
+  }
 }
+
