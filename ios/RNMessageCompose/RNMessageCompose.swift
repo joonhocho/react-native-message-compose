@@ -21,15 +21,15 @@ class RNMessageCompose: NSObject, MFMessageComposeViewControllerDelegate {
     ]
   }
   
-  @objc func canSendText(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+  @objc func canSendText(_ resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
     return resolve(MFMessageComposeViewController.canSendText())
   }
   
-  @objc func canSendAttachments(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+  @objc func canSendAttachments(_ resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
     return resolve(MFMessageComposeViewController.canSendAttachments())
   }
   
-  @objc func canSendSubject(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
+  @objc func canSendSubject(_ resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
     return resolve(MFMessageComposeViewController.canSendSubject())
   }
   

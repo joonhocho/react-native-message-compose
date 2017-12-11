@@ -14,16 +14,13 @@
 
 @interface RCT_EXTERN_MODULE(RNMessageCompose, NSObject)
 
-RCT_EXTERN_METHOD(canSendText:
-                  resolve:(RCTPromiseResolveBlock)resolve
+RCT_EXTERN_METHOD(canSendText:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject);
 
-RCT_EXTERN_METHOD(canSendAttachments:
-                  resolve:(RCTPromiseResolveBlock)resolve
+RCT_EXTERN_METHOD(canSendAttachments:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject);
 
-RCT_EXTERN_METHOD(canSendSubject:
-                  resolve:(RCTPromiseResolveBlock)resolve
+RCT_EXTERN_METHOD(canSendSubject:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject);
 
 RCT_EXTERN_METHOD(send:(NSDictionary *)data
